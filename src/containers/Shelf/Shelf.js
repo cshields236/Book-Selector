@@ -25,9 +25,21 @@ class Shelf extends Component {
             xml2js.parseStringPromise(res.data, {
                 explicitArray: false
             }).then((res => {
+                const hasBooksResponse = !res.GoodreadsResponse.reviews;
+                const list = res.GoodreadsResponse[hasBooksResponse ? 'books' : 'reviews'];
+               
 
+                if (list.length) {
+                    console.log('you dun goofed');
+                } else {
+                    const book = list.review.book;
+                    console.log(book);
+                    this.setState({
+                        currentBook: book
+                    })
+                }
 
-                console.log(res.GoodreadsResponse.reviews);
+                
 
             }))
 
@@ -37,9 +49,10 @@ class Shelf extends Component {
 
 
     render() {
+        
         return (
             <div>
-
+               
             </div>
         );
     }
