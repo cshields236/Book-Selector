@@ -3,6 +3,9 @@ import axios from 'axios';
 import xml2js from 'xml2js';
 import classes from './Shelf.module.css'
 import auxilery from '../../hoc/Auxilery';
+import StarRatings from 'react-star-ratings'
+import { parseNumbers } from 'xml2js/lib/processors';
+
 
 require('dotenv').config()
 
@@ -54,14 +57,14 @@ class Shelf extends Component {
     render() {
 
 
-
+        let rating = parseNumbers(this.state.currentBook.average_rating)
         return (
             <auxilery>
                 <div>  <h1>Your Next Book!</h1></div>
                 <div style={
                     {
                         backgroundColor: 'InfoBackground',
-                        height:'80%',
+                        height: '80%',
                         color: 'gray',
                         borderTop: '300px',
                         width: '50%',
@@ -77,6 +80,15 @@ class Shelf extends Component {
                         <img src={this.state.currentBook.image_url}></img>
                     </p>
                     <p>
+                        
+
+                        <StarRatings
+                            rating={rating}
+                            starDimension="40px"
+                            starSpacing="15px"
+                        />
+
+                        <br />
 
                         <strong>
                             {this.state.currentBook.title}
