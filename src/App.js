@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import Layout from '../src/components/Layout/Layout'
 import './App.css';
 import RandomBook from '../src/containers/RandomBook/RandomBook'
+import Shelf from '../src/containers/Shelf/Shelf'
+
+require('dotenv').config()
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Layout>
-         <RandomBook />
-        </Layout>
-      </div>
-    );
-  }
+ 
+render() {
+  return (
+    <div className="App">
+      <Layout>
+        <Shelf />
+      </Layout>
+    </div>
+  );
+}
 }
 
 export default App;

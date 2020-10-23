@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import auxilery from '../../hoc/Auxilery';
+import Auxilery from '../../hoc/Auxilery';
 
 class RandomBook extends Component{
     render(){
-        return( <auxilery>
+        return( <Auxilery>
             <div>
                 Book Spinner
             </div>
 
           <button text='Random Book'/>
-        </auxilery>)
+        </Auxilery>)
        
     }
 }
