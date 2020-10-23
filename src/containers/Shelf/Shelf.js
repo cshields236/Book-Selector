@@ -7,8 +7,8 @@ require('dotenv').config()
 class Shelf extends Component {
     state = {
         books: [],
-        currentBook: undefined,
-        loading: false
+        currentBook: {},
+        loading: true
     }
 
     componentDidMount() {
@@ -33,10 +33,12 @@ class Shelf extends Component {
                     console.log('you dun goofed');
                 } else {
                     const book = list.review.book;
-                    console.log(book);
+                    
                     this.setState({
                         currentBook: book
                     })
+
+                    console.log(this.state.currentBook.title_without_series);
                 }
 
                 
@@ -52,7 +54,7 @@ class Shelf extends Component {
         
         return (
             <div>
-               
+                {this.state.currentBook.title_without_series}
             </div>
         );
     }
