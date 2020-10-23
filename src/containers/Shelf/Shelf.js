@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import xml2js from 'xml2js';
+import classes from './Shelf.module.css'
+import auxilery from '../../hoc/Auxilery';
 
 require('dotenv').config()
 
@@ -27,20 +29,20 @@ class Shelf extends Component {
             }).then((res => {
                 const hasBooksResponse = !res.GoodreadsResponse.reviews;
                 const list = res.GoodreadsResponse[hasBooksResponse ? 'books' : 'reviews'];
-               
+
 
                 if (list.length) {
                     console.log('you dun goofed');
                 } else {
                     const book = list.review.book;
-                    
+                    console.log(book.title)
                     this.setState({
                         currentBook: book
                     })
 
                 }
 
-                
+
 
             }))
 
@@ -50,17 +52,40 @@ class Shelf extends Component {
 
 
     render() {
-        console.log(this.state.currentBook)
+
+
+
         return (
-            <div>
+            <auxilery>
+                <div>  <h1>Your Next Book!</h1></div>
+                <div style={
+                    {
+                        backgroundColor: 'InfoBackground',
+                        height:'80%',
+                        color: 'gray',
+                        borderTop: '300px',
+                        width: '50%',
+                        border: '1px solid #eee',
+                        boxshadow: '0 2px 3px #ccc',
+                        padding: '10px',
+                        margin: '10px auto',
+                        boxsizing: 'border-box'
+                    }}>
 
-                <img src={this.state.currentBook.image_url}></img>
 
-                <str>
-                         {this.state.currentBook.title}
-                </str>
-                
-            </div>
+                    <p>
+                        <img src={this.state.currentBook.image_url}></img>
+                    </p>
+                    <p>
+
+                        <strong>
+                            {this.state.currentBook.title}
+                        </strong>
+                    </p>
+
+
+                </div>
+            </auxilery>
         );
     }
 }
