@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import xml2js from 'xml2js';
 
 require('dotenv').config()
 
 class Shelf extends Component {
     state = {
         books: [],
-        c: ''
+        currentBook: undefined,
+        loading: false
     }
 
     componentDidMount() {
@@ -20,19 +22,24 @@ class Shelf extends Component {
                 sort: 'random',
             },
         }).then(res => {
-            this.setState({
-                c: res.data
-            })
-        }).catch(err => {
-            console.log(err);
+            xml2js.parseStringPromise(res.data, {
+                explicitArray: false
+            }).then((res => {
+
+
+                console.log(res.GoodreadsResponse.reviews);
+
+            }))
+
         })
+
     }
 
 
     render() {
         return (
             <div>
-                {this.state.c}
+
             </div>
         );
     }
