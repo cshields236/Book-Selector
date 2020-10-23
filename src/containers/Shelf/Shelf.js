@@ -84,9 +84,10 @@ class Shelf extends Component {
 
                         <StarRatings
                             rating={rating}
-                            starDimension="40px"
+                            starDimension="30px"
+                            starRatedColor="gold"
                             starSpacing="15px"
-                        />
+                        />{this.state.currentBook.average_rating}
 
                         <br />
 
