@@ -38,7 +38,6 @@ class Shelf extends Component {
                         currentBook: book
                     })
 
-                    console.log(this.state.currentBook.title_without_series);
                 }
 
                 
@@ -51,10 +50,16 @@ class Shelf extends Component {
 
 
     render() {
-        
+        console.log(this.state.currentBook)
         return (
             <div>
-                {this.state.currentBook.title_without_series}
+
+                <img src={this.state.currentBook.image_url}></img>
+
+                <str>
+                         {this.state.currentBook.title}
+                </str>
+                
             </div>
         );
     }
