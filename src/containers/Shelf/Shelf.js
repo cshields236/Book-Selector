@@ -5,7 +5,7 @@ import classes from './Shelf.module.css'
 import auxilery from '../../hoc/Auxilery';
 import StarRatings from 'react-star-ratings'
 import { parseNumbers } from 'xml2js/lib/processors';
-
+import Spinner from '../../Spinner/Spinner'
 
 require('dotenv').config()
 
@@ -13,10 +13,13 @@ class Shelf extends Component {
     state = {
         books: [],
         currentBook: {},
-        loading: true
+        loading: true,
+        clicked: false
+
     }
 
     componentDidMount() {
+
         axios.get('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list/', {
             params: {
                 v: 2,
@@ -38,34 +41,60 @@ class Shelf extends Component {
                     console.log('you dun goofed');
                 } else {
                     const book = list.review.book;
-                    console.log(book.title)
+
                     this.setState({
                         currentBook: book
                     })
-
                 }
-
-
-
             }))
-
         })
 
     }
 
-
+    viewBookDetailsHandler = () => {
+        this.setState({ clicked: !this.state.clicked })
+    }
     render() {
+
+        let book = (<Spinner></Spinner>)
 
 
         let rating = parseNumbers(this.state.currentBook.average_rating)
         return (
             <auxilery>
                 <div>  <h1>Your Next Book!</h1></div>
+                <div className={classes.Shelf}>
+
+                    <strong>
+                        <h2>
+                            <b>
+                                {this.state.currentBook.title}
+                            </b>
+                        </h2>
+                    </strong>
+                    <p>
+                        <img src={this.state.currentBook.image_url} alt={this.state.currentBook.title}></img>
+                    </p>
+                    <p>
+                        <StarRatings
+                            rating={rating}
+                            starDimension="30px"
+                            starRatedColor="gold"
+                            starSpacing="15px"
+                        />{this.state.currentBook.average_rating}
+                        <br />
+                    </p>
+
+                    <button onClick={this.viewBookDetailsHandler}>
+                        View Details
+                    </button>
+
+                </div>
                 <div style={
                     {
-                        backgroundColor: 'InfoBackground',
+                        backgroundColor: 'wheat',
                         height: '80%',
-                        color: 'gray',
+                        color: 'black',
                         borderTop: '300px',
                         width: '50%',
                         border: '1px solid #eee',
@@ -74,32 +103,15 @@ class Shelf extends Component {
                         margin: '10px auto',
                         boxsizing: 'border-box'
                     }}>
+                    {this.state.currentBook.description}
+                </div>;
 
-
-                    <p>
-                        <img src={this.state.currentBook.image_url}></img>
-                    </p>
-                    <p>
-                        
-
-                        <StarRatings
-                            rating={rating}
-                            starDimension="30px"
-                            starRatedColor="gold"
-                            starSpacing="15px"
-                        />{this.state.currentBook.average_rating}
-
-                        <br />
-
-                        <strong>
-                            {this.state.currentBook.title}
-                        </strong>
-                    </p>
-
-
-                </div>
             </auxilery>
         );
+
+
     }
+
+
 }
 export default Shelf;
