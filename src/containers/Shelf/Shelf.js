@@ -19,6 +19,9 @@ class Shelf extends Component {
 
     }
 
+    createMarkup() {
+        return {__html: this.state.currentBook.description};
+      }
 
     componentDidMount() {
 
@@ -143,31 +146,16 @@ class Shelf extends Component {
 
                     </div>
 
+                    <div className ={classes.Shelf} dangerouslySetInnerHTML={this.createMarkup()} />
 
 
-                    <div style={
-                        {
-                            backgroundColor: '#D8C3A5',
-                            height: '80%',
-                            color: 'black',
-                            borderTop: '300px',
-                            width: '60%',
-                            border: '1px solid #eee',
-                            boxshadow: '0 2px 3px #ccc',
-                            padding: '10px',
-                            margin: '10px auto',
-                            boxsizing: 'border-box'
-                        }}>
-                        {this.state.currentBook.description}
-                    </div>
+
                 </auxilery>)
 
         }
 
 
         return (
-
-
             book
         );
 
