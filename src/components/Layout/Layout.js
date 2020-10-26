@@ -9,6 +9,7 @@ class Layout extends React.Component {
         return (
             <Auxilery>
                 <Toolbar /> 
+                {this.props.children}
             </Auxilery>
         )
 

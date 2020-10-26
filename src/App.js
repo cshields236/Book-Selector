@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <Layout>
-          <Route path="/" component={Shelf} />
+          <Shelf />
 
         </Layout>
       </div>
