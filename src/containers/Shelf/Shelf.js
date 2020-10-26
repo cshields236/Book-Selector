@@ -43,7 +43,8 @@ class Shelf extends Component {
                     const book = list.review.book;
 
                     this.setState({
-                        currentBook: book
+                        currentBook: book,
+                        loading: false
                     })
                 }
             }))
@@ -55,13 +56,12 @@ class Shelf extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
     render() {
-
+        let rating = parseNumbers(this.state.currentBook.average_rating)
         let book = (<Spinner></Spinner>)
 
 
-        let rating = parseNumbers(this.state.currentBook.average_rating)
-        return (
-            <auxilery>
+        if (!this.state.loading){
+            book = (  <auxilery>
                 <div>  <h1>Your Next Book!</h1></div>
                 <div className={classes.Shelf}>
 
@@ -104,9 +104,18 @@ class Shelf extends Component {
                         boxsizing: 'border-box'
                     }}>
                     {this.state.currentBook.description}
-                </div>;
+                </div>
 
-            </auxilery>
+            </auxilery>)
+        }
+
+       
+        return (
+       
+                book
+            
+            
+          
         );
 
 
