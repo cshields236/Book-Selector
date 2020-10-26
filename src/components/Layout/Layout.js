@@ -1,15 +1,27 @@
 import React from 'react';
 import Auxilery from '../../hoc/Auxilery'
 import classes from './Layout.css'
+import Toolbar from '../Navigation/Toolbar/Toolbar'
 
 
-const layout = (props) => (
-    <Auxilery >
-        <div>Toolbar, Sidedrawer,Backdrop</div>
-        <main className={classes.Content}>
-            {props.children}
-        </main>
-    </Auxilery>
-);
+class Layout extends React.Component {
+    render() {
+        return (
+            <Auxilery>
+                <Toolbar /> 
+            </Auxilery>
+        )
 
-export default layout;
+    }
+}
+
+export default Layout
+
+
+
+// <Auxilery >
+    //     <div>Toolbar, Sidedrawer,Backdrop</div>
+    //     <main className={classes.Content}>
+    //         {props.children}
+    //     </main>
+    // </Auxilery>
