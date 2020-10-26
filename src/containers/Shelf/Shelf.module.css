@@ -1,15 +1,17 @@
 .Shelf {
-    background-color: wheat;
+    background-color:#D8C3A5 ;
     height: 80%;
     color: gray;
     border-top: 300px;
-    width: 50%;
+    width: 60%;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     padding: 10px;
     margin: 10px auto;
     box-sizing: border-box;
 }
+
+
 
 button {
     display: inline-block;

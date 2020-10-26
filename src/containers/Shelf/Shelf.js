@@ -10,6 +10,7 @@ import Spinner from '../../Spinner/Spinner'
 require('dotenv').config()
 
 class Shelf extends Component {
+
     state = {
         books: [],
         currentBook: {},
@@ -17,6 +18,7 @@ class Shelf extends Component {
         clicked: false
 
     }
+
 
     componentDidMount() {
 
@@ -56,11 +58,12 @@ class Shelf extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
     render() {
-        let rating = parseNumbers(this.state.currentBook.average_rating)
         let book = (<Spinner />)
 
 
         if (!this.state.loading) {
+            let rating = parseNumbers(this.state.currentBook.average_rating)
+
             book = (<auxilery>
                 <div>  <h1>Your Next Book!</h1></div>
                 <div className={classes.Shelf}>
@@ -96,6 +99,8 @@ class Shelf extends Component {
         }
 
         if (this.state.clicked) {
+        let rating = parseNumbers(this.state.currentBook.average_rating)
+
             book = (
                 <auxilery>
                     <div>  <h1>Your Next Book!</h1></div>
@@ -122,7 +127,7 @@ class Shelf extends Component {
                         </p>
 
                         <button onClick={this.viewBookDetailsHandler}
-                        className={classes.button}>
+                            className={classes.button}>
                             View Details
                     </button>
 
@@ -132,11 +137,11 @@ class Shelf extends Component {
 
                     <div style={
                         {
-                            backgroundColor: 'wheat',
+                            backgroundColor: '#D8C3A5',
                             height: '80%',
                             color: 'black',
                             borderTop: '300px',
-                            width: '50%',
+                            width: '60%',
                             border: '1px solid #eee',
                             boxshadow: '0 2px 3px #ccc',
                             padding: '10px',
@@ -154,9 +159,6 @@ class Shelf extends Component {
             book
         );
 
-
     }
-
-
 }
 export default Shelf;
