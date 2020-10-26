@@ -65,7 +65,12 @@ class Shelf extends Component {
             let rating = parseNumbers(this.state.currentBook.average_rating)
 
             book = (<auxilery>
-                <div>  <h1>Your Next Book!</h1></div>
+                <br />
+                <br />
+                <div>
+                    <h1>Your Next Book!</h1>
+                </div>
+
                 <div className={classes.Shelf}>
 
                     <strong>
@@ -99,11 +104,16 @@ class Shelf extends Component {
         }
 
         if (this.state.clicked) {
-        let rating = parseNumbers(this.state.currentBook.average_rating)
+            let rating = parseNumbers(this.state.currentBook.average_rating)
 
             book = (
                 <auxilery>
-                    <div>  <h1>Your Next Book!</h1></div>
+                    <br />
+                    <br />
+                    <div>
+                        <h1>Your Next Book!</h1>
+                    </div>
+
                     <div className={classes.Shelf}>
 
                         <strong>
@@ -156,6 +166,8 @@ class Shelf extends Component {
 
 
         return (
+
+
             book
         );
 

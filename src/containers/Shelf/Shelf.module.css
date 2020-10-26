@@ -1,9 +1,9 @@
 .Shelf {
     background-color:#D8C3A5 ;
-    height: 80%;
-    color: gray;
-    border-top: 300px;
-    width: 60%;
+    margin-top:100px;
+    height: 100%;
+    padding-top: 200px;
+    width: 80%;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     padding: 10px;
@@ -42,5 +42,26 @@ button:active {
     button {
         display: block;
         margin: 0.4em auto;
+    }
+}
+
+@media (min-width: 500px) and (min-height: 400px) {
+    .Shelf {
+        width: 25%;
+        height: 60%;
+    }
+}
+
+@media (min-width: 500px) and (min-height: 401px) {
+    .Shelf {
+        width: 25%;
+        height: 60%;
+    }
+}
+
+@media (min-width: 1000px) and (min-height: 700px) {
+    .Shelf {
+        width: 25%;
+        height: 60%;
     }
 }
