@@ -57,11 +57,11 @@ class Shelf extends Component {
     }
     render() {
         let rating = parseNumbers(this.state.currentBook.average_rating)
-        let book = (<Spinner></Spinner>)
+        let book = (<Spinner />)
 
 
-        if (!this.state.loading){
-            book = (  <auxilery>
+        if (!this.state.loading) {
+            book = (<auxilery>
                 <div>  <h1>Your Next Book!</h1></div>
                 <div className={classes.Shelf}>
 
@@ -90,32 +90,68 @@ class Shelf extends Component {
                     </button>
 
                 </div>
-                <div style={
-                    {
-                        backgroundColor: 'wheat',
-                        height: '80%',
-                        color: 'black',
-                        borderTop: '300px',
-                        width: '50%',
-                        border: '1px solid #eee',
-                        boxshadow: '0 2px 3px #ccc',
-                        padding: '10px',
-                        margin: '10px auto',
-                        boxsizing: 'border-box'
-                    }}>
-                    {this.state.currentBook.description}
-                </div>
+
 
             </auxilery>)
         }
 
-       
+        if (this.state.clicked) {
+            book = (
+                <auxilery>
+                    <div>  <h1>Your Next Book!</h1></div>
+                    <div className={classes.Shelf}>
+
+                        <strong>
+                            <h2>
+                                <b>
+                                    {this.state.currentBook.title}
+                                </b>
+                            </h2>
+                        </strong>
+                        <p>
+                            <img src={this.state.currentBook.image_url} alt={this.state.currentBook.title}></img>
+                        </p>
+                        <p>
+                            <StarRatings
+                                rating={rating}
+                                starDimension="30px"
+                                starRatedColor="gold"
+                                starSpacing="15px"
+                            />{this.state.currentBook.average_rating}
+                            <br />
+                        </p>
+
+                        <button onClick={this.viewBookDetailsHandler}
+                        className={classes.button}>
+                            View Details
+                    </button>
+
+                    </div>
+
+
+
+                    <div style={
+                        {
+                            backgroundColor: 'wheat',
+                            height: '80%',
+                            color: 'black',
+                            borderTop: '300px',
+                            width: '50%',
+                            border: '1px solid #eee',
+                            boxshadow: '0 2px 3px #ccc',
+                            padding: '10px',
+                            margin: '10px auto',
+                            boxsizing: 'border-box'
+                        }}>
+                        {this.state.currentBook.description}
+                    </div>
+                </auxilery>)
+
+        }
+
+
         return (
-       
-                book
-            
-            
-          
+            book
         );
 
 
