@@ -38,3 +38,55 @@ nav{
     font-weight: bold;
     font-size:14px
 }
+.burger{
+    display: none;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgb(228, 228, 228);
+    margin: 5px;
+}
+
+@media screen and (max-width:1024px){
+    .navlinks{
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+       
+    }
+}
+
+@media screen and (max-width:768px){
+    .body{
+        overflow-x: hidden;
+    }
+    .navlinks{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top:8vh;
+        background-color: #E98074;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        transform:translateX(100%);
+        transition: transform 0.5s ease-in;
+       
+    }
+
+    .navlinks li{
+        opacity: 0;
+    }
+    .burger {
+        display: block;
+    }
+}
+
+
+.navactive{
+    transform: translateX(0);
+}
