@@ -1,17 +1,29 @@
 import React from 'react';
 
 import classes from './Toolbar.module.css';
+import Auxilery from '../../../hoc/Auxilery'
 
-import NavigationItems from '../NavigationItems/NavigationItems';
-import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 
-const toolbar = ( props ) => (
-    <header className={classes.Toolbar}>
-        <DrawerToggle clicked={props.drawerToggleClicked} />
-       
-            <NavigationItems />
-       
-    </header>
+const toolbar = (props) => (
+    <Auxilery className={classes.Toolbar} >
+        <nav>
+            <div className={classes.logo}>
+                <h4>
+                    Book Select
+            </h4>
+            </div>
+            <ul className={classes.navlinks}>
+                <li>
+                    <a href="#" >New Book</a>
+
+                </li>
+                <li>
+                    <a href="#" >Past Books</a>
+                </li>
+            </ul>
+        </nav>
+    </Auxilery>
+
 );
 
 export default toolbar;
