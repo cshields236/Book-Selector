@@ -4,6 +4,7 @@
   box-sizing: border-box;
   
   
+  
 }
 nav{
     display: flex;
@@ -12,6 +13,7 @@ nav{
     min-height: height 8v;
     background-color:#E98074;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 .logo{
@@ -79,7 +81,7 @@ nav{
     }
 
     .navlinks li{
-        opacity: 0;
+        opacity: 1;
     }
     .burger {
         display: block;
@@ -87,9 +89,19 @@ nav{
     }
 }
 
-
-
-
 .navactive{
     transform: translateX(0);
+
+ 
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform:50px;
+    }
+    to {
+        opacity: 1;
+        transform:0px;
+    }
 }

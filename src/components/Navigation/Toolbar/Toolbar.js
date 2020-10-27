@@ -8,7 +8,7 @@ import Auxilery from '../../../hoc/Auxilery'
 class Toolbar extends React.Component {
 
     state = {
-        attachedClasses: [classes.navlinks]
+        attachedClasses: [classes.navlinks],
     }
 
 
@@ -28,7 +28,7 @@ class Toolbar extends React.Component {
                     <nav>
                         <div className={classes.logo}>
                             <h4>
-                                Book Selecter
+                                Book Selector
                             </h4>
                         </div>
                         <ul className={this.state.attachedClasses.join(' ')}>
