@@ -1,6 +1,6 @@
 # Book Selector Application using Goodreads API
 
-## Application that reccomends you a new book to read from your Goodreads Want to read Shelf 
+### React Application that reccomends your next book to read from your Goodreads want to read shelf 
 
 
 
