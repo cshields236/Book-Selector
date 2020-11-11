@@ -28,7 +28,7 @@ class Shelf extends Component {
         axios.get('https://cors-anywhere.herokuapp.com/https://www.goodreads.com/review/list/', {
             params: {
                 v: 2,
-                id: '106016596',
+                id: 106016596,
                 key: '7MFYkvoWpEg6bVvA6GuLyQ',
                 shelf: 'to-read',
                 per_page: 1,
